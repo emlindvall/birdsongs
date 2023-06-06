@@ -1,0 +1,32 @@
+.nav-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 1.5%;
+  font-size: 15px;
+  height: 5%;
+  background-color: #FFE573;
+}
+
+.logo {
+  height: 50px;
+  width: 110px;
+  cursor: pointer;
+}
+
+.saved-button {
+  height: 35px;
+  width: 125px;
+  background-color: #1B1B1B;
+  color: #FFFFFE;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all .3s ease-in-out;
+}
+
+.saved-button:hover {
+  width: 135px;
+  background-color: #303030;
+  transition: all .3s ease-in-out;
+}
