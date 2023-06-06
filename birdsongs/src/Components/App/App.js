@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import Nav from '../Nav/Nav';
 import './App.css'
 import magpie from '../../assets/birdsongs-magpie.png';
@@ -34,7 +35,7 @@ const App = () => {
             <p className="header-top">Do my ears deceive me, or was that a buff-bellied pipit?</p>
             <h1 className="header">BIRD SONGS</h1>
             <p className="header-bottom">How well do you know the vocalizations around you? Build your backyard birding skills with Birdsongs!</p>
-            <button className="button">START</button>
+            <Link to={"/search"}><button className="button">START</button></Link>
           </article>
         </div>
         <img className="magpie" src={magpie}></img>
