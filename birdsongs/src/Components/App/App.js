@@ -5,7 +5,7 @@ import './App.css';
 import magpie from '../../assets/birdsongs-magpie.png';
 
 // component imports 
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Nav from '../Nav/Nav';
 import Home from '../Home/Home';
@@ -15,13 +15,12 @@ import Error from '../Error/Error';
 
 // component 
 const App = () => {
-  var [location, setLocation] = useState("");
-  var [query, setQuery] = useState("");
+  let [url, setURL] = useState("");
 
   const handleSearch = (location, query) => {
-    console.log("inside", location, query);
-    setLocation(location);
-    setQuery(query);
+    let urlString = `https://xeno-canto.org/api/2/recordings?query=loc:${location}+${query.toLowerCase()}`
+    console.log(urlString);
+    setURL(urlString);
   }
 
   return (
@@ -32,7 +31,7 @@ const App = () => {
           <Switch>
             <Route exact path="/" render={() => <Home />} />
             <Route exact path="/search" render={() => <Search handleSearch={handleSearch}/>} />
-            <Route exact path="/results" render={() => <Birdsongs location={location} query={query}/>} />
+            <Route exact path="/results" render={() => <Birdsongs url={url}/>} />
             <Route exact path="*" render={() => <Error />} />
           </Switch>
           </div>
