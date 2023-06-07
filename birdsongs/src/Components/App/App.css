@@ -2,7 +2,7 @@
 /* Yellow #FFE573
 Light green #C3DBB8
 Medium green #3E6B4A
-Dark greek #052F32
+Dark green #052F32
 Black #1B1B1B
 White #FFFFFE
 Blue #5394B8 */
@@ -12,12 +12,10 @@ Blue #5394B8 */
 Body font-family: 'Montserrat', sans-serif; */
 
 .App {
-  text-align: center;
-  font-family: 'Montserrat', sans-serif;
-}
-.app {
   height: 100vh;
   width: 100vw;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
   color: #FFFFFE;
 }
 
@@ -58,48 +56,4 @@ Body font-family: 'Montserrat', sans-serif; */
   justify-content: flex-start;
   align-items: center;
   margin-top: 20%;
-}
-
-.header-top {
-  margin-bottom: 0px;
-  width: 50%;
-  text-align: center;
-  font-size: 2.5vh;
-  color: #C3DBB8;
-}
-
-.header  {
-  margin-top: 5%;
-  margin-bottom: 5%;
-  width: 50%;
-  text-align: center;
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 13vh;
-  font-weight: 800;
-}
-
-.header-bottom  {
-  margin-top: 0px;
-  margin-bottom: 5%;
-  width: 60%;
-  text-align: center;
-  font-size: 2.5vh;
-  color: #C3DBB8;
-}
-
-.button {
-  height: 35px;
-  width: 125px;
-  background-color: #3E6B4A;
-  color: #FFFFFE;
-  border: none;
-  border-radius: 25px;
-  cursor: pointer;
-  transition: all .3s ease-in-out;
-}
-
-.button:hover {
-  background-color: #457b53;
-  transition: all .3s ease-in-out;
-  width: 135px;
 }
