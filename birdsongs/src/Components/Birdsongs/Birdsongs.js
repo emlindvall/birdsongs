@@ -1,15 +1,17 @@
 // imports
 import React, { useEffect, useState } from 'react';
 import Spinner from '../Spinner/Spinner';
+import Error from '../Error/Error';
 import './Birdsongs.css';
 
 // component
-const Birdsongs = ({ url }) => {
+const Birdsongs = ({ url, location, toggle }) => {
   var [recordings, setRecordings] = useState([]);
   var [error, setError] = useState("");
 
   useEffect(() => {
     const fetchRecordings = async () => {
+      console.log(url);
       try {
         const response = await fetch(url);
         if (!response.ok) {
@@ -26,20 +28,37 @@ const Birdsongs = ({ url }) => {
     fetchRecordings();
   }, []);
 
-  console.log(error);
-  console.log(recordings);
+  
+  if (error)  {
+    return(
+      <Error type={"fetch"} />
+    )
+  }
+  
+  if (toggle === true && !recordings.length)  {
+    return(
+      <Error type={"search"} />
+    )
+  }
 
   if (!recordings.length) {
     return(
       <Spinner />
     )
+  
+
   } else {
     return(
-      <ul className="here">
+      <div className="birdsongs-container">
+        <h2>{location}, USA</h2>
         {recordings.map((recording) => (
-          <li key={recording.id}>{recording.en}</li>
+          <div>
+            <p className="common-name" key={recording.id}>{recording.en}</p>
+            <p className="scientific+name">{recording.sp} {recording.ssp}</p>
+            <audio clasName="audio" src={recording.file} type="audio/mpeg" controls/>
+          </div>
         ))}
-      </ul>
+      </div>
     )
   }
 }

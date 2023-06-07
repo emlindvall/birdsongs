@@ -14,10 +14,14 @@ import './App.css';
 // component 
 const App = () => {
   let [url, setURL] = useState("");
+  let [location, setLocation] = useState("");
+  let [toggle, setToggle] = useState(false);
 
   const handleSearch = (location, query) => {
     let urlString = `https://xeno-canto.org/api/2/recordings?query=loc:${location}+${query.toLowerCase()}`
     setURL(urlString);
+    setLocation(location);
+    setToggle(true);
   }
 
   return (
@@ -28,8 +32,8 @@ const App = () => {
           <Switch>
             <Route exact path="/" render={() => <Home />} />
             <Route exact path="/search" render={() => <Search handleSearch={handleSearch}/>} />
-            <Route exact path="/results" render={() => <Birdsongs url={url}/>} />
-            <Route exact path="*" render={() => <Error />} />
+            <Route exact path="/results" render={() => <Birdsongs url={url} location={location} toggle={toggle}/>} />
+            <Route exact path="*" render={() => <Error type={"redirect"}/>} />
           </Switch>
           </div>
           <img className="magpie" src={magpie}></img>

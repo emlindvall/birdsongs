@@ -1,7 +1,7 @@
 const dropdownOptions = [
     { value: "", label: "Choose your state" },
     { value: "alabama", label: "Alabama" },
-    { value: "alaska", label: "Alaska" },
+    { value: "Alaska", label: "Alaska" },
     { value: "arizona", label: "Arizona" },
     { value: "arkansas", label: "Arkansas" },
     { value: "california", label: "California" },

@@ -42,6 +42,7 @@
   height: 33px;
   margin-bottom: 10%;
   border: none;
+  border-radius: 25px;
   text-align: left;
   font-size: 2.25vh;
   font-family: 'Montserrat', sans-serif; 
