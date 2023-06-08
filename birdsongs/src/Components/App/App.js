@@ -6,6 +6,7 @@ import Home from '../Home/Home';
 import Search from '../Search/Search';
 import Birdsongs from '../Birdsongs/Birdsongs';
 import Birdsong from '../Birdsong/Birdsong';
+import Saved from '../Saved/Saved';
 import Error from '../Error/Error';
 import magpie from '../../assets/birdsongs-magpie.png';
 import './App.css';
@@ -15,6 +16,7 @@ const App = () => {
   let [url, setURL] = useState("");
   let [location, setLocation] = useState("");
   let [recordingData, setRecordingData] = useState({});
+  let [savedSongs, setSavedSongs] = useState([]);
 
   const handleSearch = (location, query) => {
     let urlString = `https://xeno-canto.org/api/2/recordings?query=loc:${location}+${query.toLowerCase()}`
@@ -22,8 +24,13 @@ const App = () => {
     setLocation(location);
     }
 
-  const handleClick = (recording) => {
+  const handleSelect = (recording) => {
     setRecordingData(recording);
+  }
+
+  const handleFavorite =  (recording) =>  {
+    savedSongs.push(recording);
+    console.log(savedSongs);
   }
 
   return (
@@ -34,12 +41,13 @@ const App = () => {
           <Switch>
             <Route exact path="/" render={() => <Home />} />
             <Route exact path="/search" render={() => <Search handleSearch={handleSearch}/>} />
-            <Route exact path="/results" render={() => <Birdsongs url={url} location={location} handleClick={handleClick}/>} />
-            <Route exact path="/:id" render = {({ match }) => {return(<Birdsong id={match.id} recording={recordingData}/>)}} />
+            <Route exact path="/results" render={() => <Birdsongs url={url} location={location} handleSelect={handleSelect}/>} />
+            <Route exact path="/saved" render={() => <Saved savedSongs={savedSongs}handleSelect={handleSelect}/>} /> 
+            <Route exact path="/:id" render = {({ match }) => {return(<Birdsong id={match.id} recording={recordingData} handleFavorite={handleFavorite}/>)}} />
             <Route exact path="*" render={() => <Error type={"redirect"}/>} />
           </Switch>
           </div>
-          <img className="magpie" src={magpie}></img>
+          <img className="magpie" src={magpie} alt="Vintage illustration of a black-billed magpie perched on a blooming prickly pear cactus"></img>
         </div>
     </div>
   );

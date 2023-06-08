@@ -6,7 +6,7 @@ import Error from '../Error/Error';
 import './Birdsongs.css';
 
 // component
-const Birdsongs = ({ url, location, handleClick }) => {
+const Birdsongs = ({ url, location, handleSelect }) => {
   var [recordings, setRecordings] = useState([]);
   var [error, setError] = useState("");
   var [loading, setLoading] = useState(false);
@@ -68,7 +68,7 @@ const Birdsongs = ({ url, location, handleClick }) => {
         <div className="birdsongs-container">
           {recordings.map((recording) => (
             <div className="recording-container"key={recording.id}>
-              <Link to={`/${recording.id}`} style={{ textDecoration: 'none' }} onClick={() => handleClick(recording)}><p className="common-name">{recording.en}</p></Link>
+              <Link to={`/${recording.id}`} style={{ textDecoration: 'none' }} onClick={() => handleSelect(recording)}><p className="common-name">{recording.en}</p></Link>
               <p className="scientific-name">{capitalize(recording.sp)} {recording.ssp}</p>
               <p className="specific-location">{formatLocation(recording.loc)}</p>
               <audio className="audio" src={recording.file} type="audio/mpeg" controls/>
