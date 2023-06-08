@@ -48,6 +48,7 @@
 .info-small {
   margin-top: 5%;
   font-size: 1.75vh;
+  overflow: wrap;
 }
 
 .button-container {
@@ -56,4 +57,19 @@
   justify-content: left;
   gap: 5%;
   margin-top: 5%;
+}
+
+@media screen and (max-width: 75em) {
+  .selected-audio  {
+    max-width: 85%;
+  }
+}
+
+@media screen and (max-width: 45em) {
+  .birdsong-container {
+    width: 70%;
+    margin-top: 30%;
+    margin-right: 13%;
+    margin-left: 17%;
+  }
 }

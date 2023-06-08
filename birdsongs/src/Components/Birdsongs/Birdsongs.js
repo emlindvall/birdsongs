@@ -70,7 +70,6 @@ const Birdsongs = ({ url, location, handleSelect }) => {
     return(
       <div className="results-container">
         <h2 className="general-location">{formatLocation(location)}, USA</h2>
-        <Link to={"/search"}><button className="button">NEW SEARCH</button></Link>
         <div className="birdsongs-container">
           {recordings.map((recording) => (
             <div className="recording-container"key={recording.id}>
@@ -81,6 +80,7 @@ const Birdsongs = ({ url, location, handleSelect }) => {
             </div>
           ))}
         </div>
+        <Link to={"/search"}><button className="button">NEW SEARCH</button></Link>
       </div>
     )
   }

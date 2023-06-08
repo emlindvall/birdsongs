@@ -4,8 +4,11 @@
   justify-content: flex-start;
   align-items: center;
   margin-top: 15%;
-  height: 85%;
-  width: 100%;
+  margin-right: 20%;
+  margin-bottom: 5%;
+  margin-left: 20%;
+  height: 80%;
+  width: 60%;
   overflow: auto;
 }
 
@@ -15,12 +18,9 @@
 }
 
 .birdsongs-container {
-  margin-top: 5%;
-  margin-right: 20%;
-  margin-bottom: 5%;
-  margin-left: 20%;
+  margin-top: 1%;
+  margin-bottom: 10%;
   height: 100%;
-  width: 60%;
   overflow: auto;
 }
 
@@ -67,4 +67,10 @@
 
 .audio::-webkit-media-controls-panel  {
   background: #ffffff;
+}
+
+@media screen and (max-width: 75em) {
+  .audio  {
+    max-width: 85%;
+  }
 }

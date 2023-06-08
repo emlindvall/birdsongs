@@ -27,7 +27,7 @@ const Search = ({ handleSearch } ) => {
         <input 
           className="query-field" 
           name="query-field" 
-          placeholder="Buff-bellied pipit"
+          placeholder="Common name"
           type="text" 
           value={query}
           onChange={(event) => setQuery(event.target.value)}>

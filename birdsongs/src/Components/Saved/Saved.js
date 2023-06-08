@@ -21,16 +21,18 @@ const Saved = ({ savedSongs, handleSelect }) => {
 
   } else {
     return(
-      <div className="saved-container">
+      <div className="saved-songs-container">
         <h2 className="saved-header">Saved Songs</h2>
-        {savedSongs.map((recording) => (
-        <div className="recording-container"key={recording.id}>
-          <Link to={`/${recording.id}`} style={{ textDecoration: 'none' }} onClick={() => handleSelect(recording)}><p className="common-name">{recording.en}</p></Link>
-          <p className="scientific-name">{capitalize(recording.sp)} {recording.ssp}</p>
-          <p className="specific-location">{recording.loc}</p>
-          <audio className="audio" src={recording.file} type="audio/mpeg" controls/>
+        <div className="saved-container">
+          {savedSongs.map((recording) => (
+            <div className="recording-container"key={recording.id}>
+              <Link to={`/${recording.id}`} style={{ textDecoration: 'none' }} onClick={() => handleSelect(recording)}><p className="common-name">{recording.en}</p></Link>
+              <p className="scientific-name">{capitalize(recording.sp)} {recording.ssp}</p>
+              <p className="specific-location">{recording.loc}</p>
+              <audio className="audio" src={recording.file} type="audio/mpeg" controls/>
+            </div>
+          ))}
         </div>
-      ))}
       </div>
     )
   }
