@@ -1,5 +1,3 @@
-
-
 // imports
 import React, { useState } from 'react';
 import { Route, Switch } from 'react-router-dom';
@@ -7,6 +5,7 @@ import Nav from '../Nav/Nav';
 import Home from '../Home/Home';
 import Search from '../Search/Search';
 import Birdsongs from '../Birdsongs/Birdsongs';
+import Birdsong from '../Birdsong/Birdsong';
 import Error from '../Error/Error';
 import magpie from '../../assets/birdsongs-magpie.png';
 import './App.css';
@@ -15,14 +14,17 @@ import './App.css';
 const App = () => {
   let [url, setURL] = useState("");
   let [location, setLocation] = useState("");
-  // let [toggle, setToggle] = useState(false);
+  let [recordingData, setRecordingData] = useState({});
 
   const handleSearch = (location, query) => {
     let urlString = `https://xeno-canto.org/api/2/recordings?query=loc:${location}+${query.toLowerCase()}`
     setURL(urlString);
     setLocation(location);
-    // setToggle(true);
     }
+
+  const handleClick = (recording) => {
+    setRecordingData(recording);
+  }
 
   return (
     <div className="App">
@@ -32,7 +34,8 @@ const App = () => {
           <Switch>
             <Route exact path="/" render={() => <Home />} />
             <Route exact path="/search" render={() => <Search handleSearch={handleSearch}/>} />
-            <Route exact path="/results" render={() => <Birdsongs url={url} location={location}/>} />
+            <Route exact path="/results" render={() => <Birdsongs url={url} location={location} handleClick={handleClick}/>} />
+            <Route exact path="/:id" render = {({ match }) => {return(<Birdsong id={match.id} recording={recordingData}/>)}} />
             <Route exact path="*" render={() => <Error type={"redirect"}/>} />
           </Switch>
           </div>

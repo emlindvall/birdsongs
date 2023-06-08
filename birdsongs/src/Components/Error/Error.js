@@ -24,6 +24,16 @@ const Error = ({ type }) => {
       </div>
     )
   }
+
+  if (type == "fetch") {
+    return(
+      <div className="error-container">
+        <h2 className="error-header">Uh Oh!</h2>
+        <p>Something's gone wrong on our end.</p>
+        <Link to={"/"}><button className="button">HOME</button></Link>
+      </div>
+    )
+  }
 }
 
 export default Error;
