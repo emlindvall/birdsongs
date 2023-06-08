@@ -1,7 +1,9 @@
+// imports
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Home.css';
 
+// component
 const Home = () => {
   return (
     <article className="header-container">
@@ -14,3 +16,5 @@ const Home = () => {
 }
 
 export default Home;
+
+// proptypes

@@ -1,0 +1,25 @@
+.saved-container  {
+  height: 75%;
+  margin-top: 20%;
+  margin-right: 20%;
+  margin-bottom: 5%;
+  margin-left: 20%;
+  overflow: auto;
+}
+
+.saved-container::-webkit-scrollbar {
+  width: 10px;
+  background: #414141;
+  border-radius: 15px;
+}
+
+.saved-container::-webkit-scrollbar-thumb{
+  background: #747474;
+  border-radius: 15px;
+}
+
+.saved-header {
+  font-size: 4vh;
+  font-family: 'Josefin Sans', sans-serif;
+  color: #5394B8;
+}

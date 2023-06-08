@@ -1,10 +1,10 @@
+// imports
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Saved.css';
 
+// component
 const Saved = ({ savedSongs, handleSelect }) => {
-  console.log(savedSongs);
-
   const capitalize = (unformatted) => {
     let formatted = unformatted.charAt(0).toUpperCase() + unformatted.slice(1);
     return formatted;
@@ -18,9 +18,11 @@ const Saved = ({ savedSongs, handleSelect }) => {
         <Link to={"/"}><button className="button">HOME</button></Link>
       </div>
     )
+
   } else {
     return(
-      <div className="results-container">
+      <div className="saved-container">
+        <h2 className="saved-header">Saved Songs</h2>
         {savedSongs.map((recording) => (
         <div className="recording-container"key={recording.id}>
           <Link to={`/${recording.id}`} style={{ textDecoration: 'none' }} onClick={() => handleSelect(recording)}><p className="common-name">{recording.en}</p></Link>
@@ -35,3 +37,5 @@ const Saved = ({ savedSongs, handleSelect }) => {
 }
 
 export default Saved;
+
+// proptypes

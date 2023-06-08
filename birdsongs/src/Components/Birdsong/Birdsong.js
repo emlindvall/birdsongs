@@ -1,10 +1,11 @@
+// imports
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Error from '../Error/Error';
 import './Birdsong.css';
 
+// component
 const Birdsong = ({ recording, handleFavorite }) =>  {
-
   const capitalize = (unformatted) => {
     let formatted = unformatted.charAt(0).toUpperCase() + unformatted.slice(1);
     return formatted;
@@ -51,3 +52,5 @@ const Birdsong = ({ recording, handleFavorite }) =>  {
 }
 
 export default Birdsong;
+
+// proptypes

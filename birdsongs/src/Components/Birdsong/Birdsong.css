@@ -3,10 +3,10 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: left;
-  margin-top: 25%;
-  margin-right: 20%;
+  margin-top: 20%;
+  margin-right: 25%;
   margin-bottom: 5%;
-  margin-left: 20%;
+  margin-left: 25%;
   width: 60%;
   height: 75%;
   text-align: left;
@@ -53,7 +53,7 @@
 .button-container {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: left;
   gap: 5%;
-  margin-top: 10%;
+  margin-top: 5%;
 }

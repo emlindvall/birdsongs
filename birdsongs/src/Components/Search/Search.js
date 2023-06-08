@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Dropdown from 'react-dropdown';
 import dropdownOptions from '../../dropdownOptions.js';
-import 'react-dropdown/style.css';
+import 'react-dropdown/customstyles.css';
 import './Search.css';
 
 // component
@@ -27,7 +27,7 @@ const Search = ({ handleSearch } ) => {
         <input 
           className="query-field" 
           name="query-field" 
-          placeholder="Warbler, nuthatch, woodpecker, etc"
+          placeholder="Buff-bellied pipit"
           type="text" 
           value={query}
           onChange={(event) => setQuery(event.target.value)}>

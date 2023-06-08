@@ -1,9 +1,10 @@
+// imports
 import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/birdsongs-logo.png';
 import './Nav.css'
 
-
+// component
 const Nav = () => {
   return(
     <div className="nav-container">
@@ -14,3 +15,5 @@ const Nav = () => {
 }
 
 export default Nav;
+
+// proptypes

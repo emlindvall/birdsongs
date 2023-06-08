@@ -16,10 +16,11 @@ const App = () => {
   let [url, setURL] = useState("");
   let [location, setLocation] = useState("");
   let [recordingData, setRecordingData] = useState({});
-  let [savedSongs, setSavedSongs] = useState([]);
+  let [savedSongs] = useState([]);
 
   const handleSearch = (location, query) => {
-    let urlString = `https://xeno-canto.org/api/2/recordings?query=loc:${location}+${query.toLowerCase()}`
+    query = formatLocation(query);
+    let urlString = `https://xeno-canto.org/api/2/recordings?query=loc:${location}+${query}`;
     setURL(urlString);
     setLocation(location);
     }
@@ -30,7 +31,15 @@ const App = () => {
 
   const handleFavorite =  (recording) =>  {
     savedSongs.push(recording);
-    console.log(savedSongs);
+  }
+
+  const formatLocation = (unformatted) =>  {
+    if (unformatted)  {
+      let formatted = `"${unformatted}"`
+      return formatted;
+    } else{
+      return unformatted;
+    }
   }
 
   return (

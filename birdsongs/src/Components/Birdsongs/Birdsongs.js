@@ -7,9 +7,9 @@ import './Birdsongs.css';
 
 // component
 const Birdsongs = ({ url, location, handleSelect }) => {
-  var [recordings, setRecordings] = useState([]);
-  var [error, setError] = useState("");
-  var [loading, setLoading] = useState(false);
+  let [recordings, setRecordings] = useState([]);
+  let [error, setError] = useState("");
+  let [loading, setLoading] = useState(false);
 
   useEffect(() => {
     setLoading(true)
@@ -38,10 +38,16 @@ const Birdsongs = ({ url, location, handleSelect }) => {
   }
 
   const formatLocation = (unformatted) => {
+    let formatted = unformatted.replace("_", " ");
+    return formatted;
+  }
+
+  const formatExactLocation = (unformatted) => {
     let trim = (unformatted.length - (location.length + 2));
     let formatted = unformatted.slice(0, trim);
     return formatted;
   }
+  
 
   if (error)  {
     return(
@@ -63,14 +69,14 @@ const Birdsongs = ({ url, location, handleSelect }) => {
   } else {
     return(
       <div className="results-container">
-        <h2 className="general-location">{location}, USA</h2>
+        <h2 className="general-location">{formatLocation(location)}, USA</h2>
         <Link to={"/search"}><button className="button">NEW SEARCH</button></Link>
         <div className="birdsongs-container">
           {recordings.map((recording) => (
             <div className="recording-container"key={recording.id}>
               <Link to={`/${recording.id}`} style={{ textDecoration: 'none' }} onClick={() => handleSelect(recording)}><p className="common-name">{recording.en}</p></Link>
               <p className="scientific-name">{capitalize(recording.sp)} {recording.ssp}</p>
-              <p className="specific-location">{formatLocation(recording.loc)}</p>
+              <p className="specific-location">{formatExactLocation(recording.loc)}</p>
               <audio className="audio" src={recording.file} type="audio/mpeg" controls/>
             </div>
           ))}

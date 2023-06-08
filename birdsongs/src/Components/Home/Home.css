@@ -1,7 +1,17 @@
-.header-top {
-  margin-bottom: 0px;
-  width: 50%;
+.header-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
   text-align: center;
+  height: 77%;
+  width: 70%;
+  margin-right: 15%;
+  margin-left: 15%;
+}
+
+.header-top {
+  margin-bottom: 5%;
   font-size: 2.5vh;
   color: #C3DBB8;
 }
@@ -9,7 +19,6 @@
 .header  {
   margin-top: 5%;
   margin-bottom: 5%;
-  width: 50%;
   text-align: center;
   font-family: 'Josefin Sans', sans-serif;
   font-size: 13vh;
@@ -18,9 +27,7 @@
 
 .header-bottom  {
   margin-top: 0px;
-  margin-bottom: 5%;
-  width: 60%;
-  text-align: center;
+  margin-bottom: 10%;
   font-size: 2.5vh;
   color: #C3DBB8;
 }
@@ -40,4 +47,34 @@
   background-color: #457b53;
   transition: all .3s ease-in-out;
   width: 135px;
+}
+
+@media screen and (max-width: 75em) {
+  .header {
+    font-size: 12vh;
+  }
+
+  .header-top, .header-bottom {
+    font-size: 2.25vh;
+  }
+}
+
+@media screen and (max-width: 55em) {
+  .header {
+    font-size: 11vh;
+  }
+
+  .header-top, .header-bottom {
+    font-size: 2vh;
+  }
+}
+
+@media screen and (max-width: 45em) {
+  .header {
+    font-size: 10vh;
+  }
+
+  .header-top, .header-bottom {
+    font-size: 2vh;
+  }
 }

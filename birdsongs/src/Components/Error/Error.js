@@ -1,9 +1,10 @@
+// imports
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Error.css';
 
+// component
 const Error = ({ type }) => {
-
   if (type == "search")  {
     return(
       <div className="error-container">
@@ -37,3 +38,5 @@ const Error = ({ type }) => {
 }
 
 export default Error;
+
+// proptypes
