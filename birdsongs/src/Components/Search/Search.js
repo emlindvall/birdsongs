@@ -32,7 +32,9 @@ const Search = ({ handleSearch } ) => {
           value={query}
           onChange={(event) => setQuery(event.target.value)}>
         </input>
-        <Link to={"/results"}><button className="button" onClick={() => handleSearch(location, query)}>SEARCH</button></Link>
+        {location && (
+          <Link to={"/results"}><button className="button" onClick={() => handleSearch(location, query)}>SEARCH</button></Link>
+        )}
       </form>
     )
 }

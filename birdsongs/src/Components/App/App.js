@@ -15,14 +15,14 @@ import './App.css';
 const App = () => {
   let [url, setURL] = useState("");
   let [location, setLocation] = useState("");
-  let [toggle, setToggle] = useState(false);
+  // let [toggle, setToggle] = useState(false);
 
   const handleSearch = (location, query) => {
     let urlString = `https://xeno-canto.org/api/2/recordings?query=loc:${location}+${query.toLowerCase()}`
     setURL(urlString);
     setLocation(location);
-    setToggle(true);
-  }
+    // setToggle(true);
+    }
 
   return (
     <div className="App">
@@ -32,7 +32,7 @@ const App = () => {
           <Switch>
             <Route exact path="/" render={() => <Home />} />
             <Route exact path="/search" render={() => <Search handleSearch={handleSearch}/>} />
-            <Route exact path="/results" render={() => <Birdsongs url={url} location={location} toggle={toggle}/>} />
+            <Route exact path="/results" render={() => <Birdsongs url={url} location={location}/>} />
             <Route exact path="*" render={() => <Error type={"redirect"}/>} />
           </Switch>
           </div>

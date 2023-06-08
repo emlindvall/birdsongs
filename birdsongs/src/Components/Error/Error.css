@@ -3,3 +3,8 @@
   width: 50%;
   margin-left: 25%;
 }
+
+.error-header {
+  font-family: 'Josefin Sans', sans-serif;
+  color: #5394B8;
+}
