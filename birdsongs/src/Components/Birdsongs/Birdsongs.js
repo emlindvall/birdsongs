@@ -80,7 +80,7 @@ const Birdsongs = ({ url, location, handleSelect }) => {
             </div>
           ))}
         </div>
-        <Link to={"/search"}><button className="button">NEW SEARCH</button></Link>
+        <Link to={"/search"}><button className="button" id="new-search-button">NEW SEARCH</button></Link>
       </div>
     )
   }

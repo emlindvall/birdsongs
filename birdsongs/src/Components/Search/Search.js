@@ -18,7 +18,6 @@ const Search = ({ handleSearch } ) => {
         <Dropdown 
           className="location-field" 
           name="location-field" 
-          placeholder="Select an option"
           options={dropdownOptions} 
           value={location} 
           onChange={(event) => setLocation(event.value)} 
@@ -33,7 +32,7 @@ const Search = ({ handleSearch } ) => {
           onChange={(event) => setQuery(event.target.value)}>
         </input>
         {location && (
-          <Link to={"/results"}><button className="button" onClick={() => handleSearch(location, query)}>SEARCH</button></Link>
+          <Link to={"/results"}><button className="button" id="search-button" onClick={() => handleSearch(location, query)}>SEARCH</button></Link>
         )}
       </form>
     )
