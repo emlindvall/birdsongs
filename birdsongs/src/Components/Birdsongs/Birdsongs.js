@@ -25,21 +25,16 @@ const Birdsongs = ({ recordings,  location, loading, error, handleSelect }) => {
   }
 
   if (error)  {
-    console.log(error);
     return(
       <Error type={"fetch"} />
     )
   }
 
-  if (loading || !recordings.length) {
+  if (loading && !recordings.length) {
     return <Spinner />
   }
 
-  console.log("loading", loading);
-  console.log("recordings", recordings)
-  console.log("error", error);
-
-  if (!error && !loading && !recordings)  {
+  if (!loading && !recordings.length)  {
     return(
       <Error type={"search"} />
     )

@@ -10,8 +10,7 @@ const getData = async (url) => {
       return response.json();
     }
   } catch (error) {
-    console.log(error)
-    
+    return error;
   }
 };
 

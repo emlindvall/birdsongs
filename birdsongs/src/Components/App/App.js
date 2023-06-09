@@ -20,23 +20,25 @@ const App = () => {
   let [recording, setRecording] = useState({});
   let [savedSongs] = useState([]);
   let [loading, setLoading] = useState(false);
-  let [error, setError] = useState("");
+  let [error, setError] = useState(false);
 
   const clearInputs = () => {
     setRecordings([]);
     setLoading(true);
-    setError("");
+    setError(false);
   }
 
   const handleSearch = async (location, query) => {
     clearInputs();
+    setLoading(true);
     let url = `https://xeno-canto.org/api/2/recordings?query=loc:${location}+${query}`;
     const data = await getData(url);
-    if (data) {
+    if (data.recordings) {
       setRecordings(data.recordings.slice(0, 20));
       setLocation(location);
       setLoading(false);
     } else {
+      setError(true);
       setLoading(false);
     }
   }
@@ -82,6 +84,6 @@ App.propTypes = {
   data: PropTypes.object,
   recordings: PropTypes.array,
   recording: PropTypes.object,
-  error: PropTypes.string,
+  error: PropTypes.bool,
   loading: PropTypes.bool
 }
