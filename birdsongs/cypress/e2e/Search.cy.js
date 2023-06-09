@@ -61,39 +61,38 @@
       .get('#selected-remark').contains("I assume these are Canada and not Cackling, but not seen clearly enough to say for sure. Flock of 30-40 migrating individuals.")
     });
 
-    it('User should be notified of failed network request', () => {
-      // cy.visit('http://localhost:3000/search');
-      cy.get('.location-field').click().get('.Dropdown-menu').contains('Illinois').click();
-      cy.get('.query-field').type('goose');
-      cy.intercept('GET', 'https://xeno-canto.org/api/2/recordings?query=loc:illinois+goose', {
-        statusCode: 500,
-      });
-      cy.get('#search-button').click();
-      cy.get('p').contains("Something's gone wrong on our end.");
+    // it('User should be notified of failed network request', () => {
+    //   cy.get('.location-field').click().get('.Dropdown-menu').contains('Illinois').click();
+    //   cy.get('.query-field').type('goose');
+    //   cy.intercept('GET', 'https://xeno-canto.org/api/2/recordings?query=loc:illinois+goose', {
+    //     statusCode: 500,
+    //   });
+    //   cy.get('#search-button').click();
+    //   cy.get('p').contains("Something's gone wrong on our end.");
+    // });
+
+    it('User should be notified upon search with no results', () => {
+      cy.get('.location-field').click().get('.Dropdown-menu').contains('Illinois').click()
+      .get('.query-field').type('sillygoose');
+      cy.intercept('GET', 'https://xeno-canto.org/api/2/recordings?query=loc:illinois+sillygoose', {
+        statusCode: 200,
+        fixture: 'bad-xc-data.json'
+        });
+      cy.get('#search-button').click()
+      .get('.error-container')
+      .get('h3').contains("Looks like you're on a wild goose chase. There are no results for that bird. Check for typos, or try broadening your search term.")
     });
 
-    // it('User should be notified upon search with no results', () => {
-    //   cy.get('.location-field').click().get('.Dropdown-menu').contains('Illinois').click()
-    //   .get('.query-field').type('sillygoose');
-    //   cy.intercept('GET', 'https://xeno-canto.org/api/2/recordings?query=loc:illinois+sillygoose', {
-    //     statusCode: 200,
-    //     fixture: 'bad-xc-data.json'
-    //     });
-    //   cy.get('#search-button').click()
-    //   .get('.error-container')
-    //   .get('h3').contains("Looks like you're on a wild goose chase. There are no results for that bird. Check for typos, or try broadening your search term.")
-    // });
-
-    // it('The BACK button should return users to the homepage', () => {
-    //   cy.intercept('GET', 'https://xeno-canto.org/api/2/recordings?query=loc:illinois+sillygoose', {
-    //       statusCode: 200,
-    //       fixture: 'bad-xc-data.json'
-    //   })
-    //   .visit('http://localhost:3000/search')
-    //   .get('.location-field').click().get('.Dropdown-menu').contains('Illinois').click()
-    //   .get('.query-field').type('sillygoose')
-    //   .get('#search-button').click()
-    //   .get('#back-button').click().url().should('eq', 'http://localhost:3000/search')
-    // });
+    it('The BACK button should return users to the homepage', () => {
+      cy.intercept('GET', 'https://xeno-canto.org/api/2/recordings?query=loc:illinois+sillygoose', {
+          statusCode: 200,
+          fixture: 'bad-xc-data.json'
+      })
+      .visit('http://localhost:3000/search')
+      .get('.location-field').click().get('.Dropdown-menu').contains('Illinois').click()
+      .get('.query-field').type('sillygoose')
+      .get('#search-button').click()
+      .get('#back-button').click().url().should('eq', 'http://localhost:3000/search')
+    });
   })
 }
