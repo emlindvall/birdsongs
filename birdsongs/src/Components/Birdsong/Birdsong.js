@@ -67,7 +67,7 @@ export default Birdsong;
 Birdsong.propTypes = {
   handleFavorite: PropTypes.func,
   recording: PropTypes.object,
-  error: PropTypes.string,
+  error: PropTypes.bool,
   unformatted: PropTypes.string,
   parameter: PropTypes.string,
   recording: PropTypes.object,

@@ -66,7 +66,7 @@ Birdsongs.propTypes = {
   recordings: PropTypes.array.isRequired,
   location: PropTypes.string.isRequired,
   loading: PropTypes.bool,
-  error: PropTypes.string,
+  error: PropTypes.bool,
   handleSelect: PropTypes.func.isRequired,
   unformatted: PropTypes.string,
 }
