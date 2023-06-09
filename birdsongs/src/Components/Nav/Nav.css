@@ -2,16 +2,27 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  position: absolute;
+  z-index: 1;
+  height: 5%;
+  width: 96.7vw;
   padding: 1.5%;
   font-size: 15px;
-  height: 5%;
-  background-color: #FFE573;
 }
 
 .logo {
   height: 50px;
   width: 110px;
   cursor: pointer;
+  transition: all .3s ease-in-out;
+}
+
+.logo:hover {
+  padding-left: 3%;
+  height: 50px;
+  width: 110px;
+  cursor: pointer;
+  transition: all .3s ease-in-out;
 }
 
 .saved-button {

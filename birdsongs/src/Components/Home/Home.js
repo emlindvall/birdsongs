@@ -7,9 +7,9 @@ import './Home.css';
 const Home = () => {
   return (
     <article className="header-container">
-      <p className="header-top">Do my ears deceive me, or was that a buff-bellied pipit?</p>
+      <p className="header-top">The Birdcall Library</p>
       <h1 className="header">BIRD SONGS</h1>
-      <p className="header-bottom">How well do you know the vocalizations around you? Build your backyard birding skills with Birdsongs!</p>
+      <p className="header-bottom">Do my ears deceive me, or was that a buff-bellied pipit?</p>
       <Link to={"/search"}><button className="button" id="start-button">START</button></Link>
     </article>
   )

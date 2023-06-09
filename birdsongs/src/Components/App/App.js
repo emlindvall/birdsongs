@@ -10,7 +10,7 @@ import Birdsong from '../Birdsong/Birdsong';
 import Saved from '../Saved/Saved';
 import Error from '../Error/Error';
 import getData from '../../ApiCall';
-import magpie from '../../assets/birdsongs-magpie.png';
+// import magpie from '../../assets/birdsongs-magpie.png';
 import './App.css';
 
 // component 
@@ -68,7 +68,6 @@ const App = () => {
             <Route path="*" render={() => <Error type={"redirect"}/>} />
           </Switch>
           </div>
-          <img className="magpie" src={magpie} alt="Vintage illustration of a black-billed magpie perched on a blooming prickly pear cactus"></img>
         </div>
     </div>
   );
