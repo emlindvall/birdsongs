@@ -1,6 +1,7 @@
 // imports
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types'
 import './Saved.css';
 
 // component
@@ -41,3 +42,8 @@ const Saved = ({ savedSongs, handleSelect }) => {
 export default Saved;
 
 // proptypes
+Saved.propTypes = {
+  savedSongs: [],
+  handleSelect: PropTypes.func.isRequired,
+  unformatted: PropTypes.string
+}

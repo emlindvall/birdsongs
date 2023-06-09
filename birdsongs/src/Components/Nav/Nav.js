@@ -15,5 +15,3 @@ const Nav = () => {
 }
 
 export default Nav;
-
-// proptypes

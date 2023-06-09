@@ -1,6 +1,7 @@
 // imports
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import Nav from '../Nav/Nav';
 import Home from '../Home/Home';
 import Search from '../Search/Search';
@@ -8,38 +9,47 @@ import Birdsongs from '../Birdsongs/Birdsongs';
 import Birdsong from '../Birdsong/Birdsong';
 import Saved from '../Saved/Saved';
 import Error from '../Error/Error';
+import getData from '../../ApiCall';
 import magpie from '../../assets/birdsongs-magpie.png';
 import './App.css';
 
 // component 
 const App = () => {
-  let [url, setURL] = useState("");
   let [location, setLocation] = useState("");
-  let [recordingData, setRecordingData] = useState({});
+  let [recordings, setRecordings] = useState([]);
+  let [recording, setRecording] = useState({});
   let [savedSongs] = useState([]);
+  let [loading, setLoading] = useState(false);
+  let [error, setError] = useState("");
 
-  const handleSearch = (location, query) => {
-    query = formatLocation(query);
-    let urlString = `https://xeno-canto.org/api/2/recordings?query=loc:${location}+${query}`;
-    setURL(urlString);
-    setLocation(location);
-    }
-
-  const handleSelect = (recording) => {
-    setRecordingData(recording);
+  const clearInputs = () => {
+    setRecordings([]);
+    setLoading(true);
+    setError("");
   }
 
-  const handleFavorite =  (recording) =>  {
+  const handleSearch = async (location, query) => {
+    clearInputs();
+    let url = `https://xeno-canto.org/api/2/recordings?query=loc:${location}+${query}`;
+    const data = await getData(url);
+    if (data) {
+      setRecordings(data.recordings.slice(0, 20));
+      setLocation(location);
+      setLoading(false);
+    } else {
+      setLoading(false);
+    }
+  }
+
+  const handleSelect = async (id) => {
+    clearInputs();
+    let url = `https://xeno-canto.org/api/2/recordings?query=nr:${id}`;
+    const data = await getData(url);
+    setRecording(data.recordings[0]);
+  }
+
+  const handleFavorite = (recording) => {
     savedSongs.push(recording);
-  }
-
-  const formatLocation = (unformatted) =>  {
-    if (unformatted)  {
-      let formatted = `"${unformatted}"`
-      return formatted;
-    } else{
-      return unformatted;
-    }
   }
 
   return (
@@ -50,9 +60,9 @@ const App = () => {
           <Switch>
             <Route exact path="/" render={() => <Home />} />
             <Route exact path="/search" render={() => <Search handleSearch={handleSearch}/>} />
-            <Route exact path="/results" render={() => <Birdsongs url={url} location={location} handleSelect={handleSelect}/>} />
-            <Route exact path="/saved" render={() => <Saved savedSongs={savedSongs}handleSelect={handleSelect}/>} /> 
-            <Route exact path="/:id" render = {({ match }) => {return(<Birdsong id={match.params.id} handleFavorite={handleFavorite}/>)}} />
+            <Route exact path="/results" render={() => <Birdsongs recordings={recordings} location={location} error={error} loading={loading} handleSelect={handleSelect}/>} />
+            <Route exact path="/saved" render={() => <Saved savedSongs={savedSongs} handleSelect={handleSelect}/>} />
+            <Route exact path="/:id" component={({ match }) => recording && Object.keys(recording).length ? (<Birdsong recording={recording} error={error} handleFavorite={handleFavorite} />) : (<Error type="redirect" />)} />
             <Route path="*" render={() => <Error type={"redirect"}/>} />
           </Switch>
           </div>
@@ -65,3 +75,13 @@ const App = () => {
 export default App;
 
 // proptypes
+App.propTypes = {
+  location: PropTypes.string,
+  query: PropTypes.string, 
+  url: PropTypes.string,
+  data: PropTypes.object,
+  recordings: PropTypes.array,
+  recording: PropTypes.object,
+  error: PropTypes.string,
+  loading: PropTypes.bool
+}
