@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Dropdown from 'react-dropdown';
 import dropdownOptions from '../../dropdownOptions.js';
-import '../../../node_modules/react-dropdown/style.css';
+import '../../../node_modules/react-dropdown/styless.css';
 import './Search.css';
 
 // component
@@ -15,7 +15,7 @@ const Search = ({ handleSearch } ) => {
     return(
       <form className="search-container">
         <h3 className="search-header">Search birdsongs</h3>
-        <label className="search-description">Start by selecting your state from the drop-down menu.</label>
+        <label className="search-description">Start by selecting a state to explore from the menu below.</label>
         <Dropdown 
           className="location-field" 
           name="location-field" 
@@ -23,7 +23,7 @@ const Search = ({ handleSearch } ) => {
           value={location} 
           onChange={(event) => setLocation(event.value)} 
           />
-        <label className="search-description">Want to hear a specific bird? Try narrowing down your local results by typing its name below. You can leave this blank if you'd prefer a broader search.</label>
+        <label className="search-description">Looking for a specific bird?<br></br> Try narrowing down your results by common name. If you'd prefer a broader search, you can leave this field blank.</label>
         <input 
           className="query-field" 
           name="query-field" 

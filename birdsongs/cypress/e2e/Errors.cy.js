@@ -4,26 +4,25 @@ describe('Error functionality', () => {
   });
 
   it('User should be notified of failed network request', () => {
-    cy.intercept('GET', 'https://xeno-canto.org/api/2/recordings?query=loc:illinois+goose', (req) => {
+    cy.intercept('GET', 'https://xeno-canto.org/api/2/recordings?query=loc:Illinois+goose', (req) => {
       req.reply({
         statusCode: 500,
         body: 'Internal Server Error',
       })
-    });
-    cy.visit('http://localhost:3000/search')
+    })
+      .visit('http://localhost:3000/search')
       .get('.location-field').click().get('.Dropdown-menu').contains('Illinois').click()
       .get('.query-field').type('goose')
       .get('#search-button').click()
-      .get('p');
-      // .get('p').contains("Something's gone wrong on our end.");
+      .get('p').contains("Something's gone wrong on our end.");
   });
 
     it('User should be notified upon search with no results', () => {
       cy.intercept('GET', 'https://xeno-canto.org/api/2/recordings?query=loc:illinois+sillygoose', {
         statusCode: 200,
         fixture: 'bad-xc-data.json'
-        });
-      cy.visit('http://localhost:3000/search')
+        })
+      .visit('http://localhost:3000/search')
       .get('.location-field').click().get('.Dropdown-menu').contains('Illinois').click()
       .get('.query-field').type('sillygoose')
       .get('#search-button').click()

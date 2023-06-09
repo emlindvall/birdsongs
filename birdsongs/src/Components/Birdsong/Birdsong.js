@@ -53,7 +53,7 @@ const Birdsong = ({ handleFavorite, recording, error }) =>  {
         <p className="info-medium" id="selected-recordist">by {recording.rec}</p>
         <p className="info-small" id="selected-remark">{capitalize(recording.rmk)}</p>
         <div className="button-container">
-          <button className="button" id="save-button" onClick={() => handleFavorite(recording)}>SAVE SONG</button>
+          <button className="button" id="save-button" onClick={() => handleFavorite(recording)}>SAVE</button>
           <Link to={"/search"}><button className="button">BACK</button></Link>
         </div>
       </div>
