@@ -1,10 +1,10 @@
-## About 🦆
+## About 🦢
 
-[Birdsongs](https://birdsongs-hn0rupd6h-emlindvall.vercel.app/) is an ear-training app for backyard birders. Specifically designed for beginning birdwatchers, Birdsongs harnesses the power of the [Xeno-Canto API](https://xeno-canto.org/article/153) to familiarize users with vocalizations recorded by state. Users can browse thousands of user-uploaded field recordings from their area, or target their search on a specific bird genus, species, or type, allowing you to explore an almost endless variety of birdcalls from across the United States. Whether you're looking retired, chronically-single, planning the murder of that bird that keeps waking you up at 5:00am, or you just really, really like birds, Birdsongs is the ideal app to help your birdcall recall take flight. 
+Simply put, [Birdsongs](https://birdsongs-mu.vercel.app/) is a birdcall library. After many hours spent watching great blue herons, belted kingfishers, and orioles in beautiful Humboldt Park in Chicago, Illinois, I was inspired to build an ear-training app for birdwatchers. Utilizing the [Xeno-Canto API](https://xeno-canto.org/article/153), Birdsongs help familiarize users with birdcalls catalogued by state, with the explicit goal of insprire birders to fall even more deeply in love with their own backyard. Users can browse thousands of user-uploaded field recordings, and target their exploration by a bird's English common name or by its Latin genus. Whether you're an experienced birder or your hobby is just taking flight, Birdsongs is here to lend a hand. Or wing, I guess. Happy birding!
 
 ---
 
-## Set Up 🦜
+## Set Up 🦢
 
 > ### Installing the files
 > - Fork this [repository](https://github.com/emlindvall/birdsongs) to your GitHub account. 
@@ -24,7 +24,7 @@
 
 ---
 
-## Preview 🦅
+## Preview 🦢
 
 ![Preview Home Page](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZTFkNjE2MzM0NTg5ZmI3YzNiYmRlYjE1YWFmNzUzYTAzYjM2NjYxMSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/LaFpXqrEmNp5EC8ews/giphy.gif)
 
@@ -40,7 +40,7 @@ Em Lindvall  [GitHub](https://github.com/emlindvall) | [LinkedIn](https://www.li
 
 ---
 
-## Context 🦉
+## Context 🦢
 
 Birdsongs was a solo project built during the developer's third semester enrolled in [Turing School of Software & Design's Front End Development program](https://frontend.turing.edu/), a four-semester, eight-month course focused on preparing students for a career as web developers working with Javascript, HTML, CSS, and the React framework. The project was built to match the specifications of the [project rubric](https://frontend.turing.edu/projects/module-3/showcase.html), and represents my third React application. In addition to pushing me to rise to the challenge of this still-new framework, Birdsongs also required me to incorporate the following languages, technologies, and competencies:  
   * Test-Driven Development utilizing the Cypress framework
@@ -49,12 +49,12 @@ Birdsongs was a solo project built during the developer's third semester enrolle
   * Proptype checking
   * Peer-reviewed pull requests 
   * Git workflow
-  * [Vercel](https://birdsongs-hn0rupd6h-emlindvall.vercel.app/)
+  * [Vercel](https://birdsongs-mu.vercel.app/)
   * [GitHub Projects](https://github.com/users/emlindvall/projects/2/views/1)
 
 ---
 
-## Goals and Challenges 🦩
+## Goals and Challenges 🦢
 
 Birdsongs was developed over the course of just five days, which meant that time management was the most difficult aspect of this project. Considered the semester's "showcase project", I tackled this build during the busiest time of the semester, and needed to diligently balance time spent on Birdsongs with time spent studying and preparing for my final assessment. This meant that I needed to stick to a very narrow minimum viable product, and avoid the dreaded "scope creep" like the plague-- harder said than done when you're really excited about the product you're building. I often had to tell myself "no" in order to keep my plate responsibly balanced, and had to choose what areas of the application to dedicate my time to very, very carefully. 
 
@@ -62,6 +62,6 @@ I also took on the challenge of self-teaching and applying React hooks for this 
 
 ---
 
-## Future Development Opportunities 🦆
+## Future Development Opportunities 🦢
 
-I fully intend to return to Birdsongs very soon. My vision is to turn Birdsongs into a more active educational experience, centering its functionality on a birdcall quiz utilizing recordings from the user's selected location. I'd love to integrate some sort of a points system, maybe a streak-tracker, or even a leaderboard. This would mean incorporating user authentication, much more robust form validation, and an expansion of the currently-available search terms, just to name a few starting points. I'd also like to feature a random recording each day, and create functionality for browsing birdcalls randomly, rather than based on specific search criteria. Stay tuned! 
+Birdsongs has really just hatched, but I do fully intend to return to it very soon. My vision is to build the interface out to be more educationally-focused, swapping passive exploration for active recall practice via a quiz-based algorithm that will sit alongside the existing search functionalities. I'd love to allow users to track their streak of correctly-identified birdcalls, and feature users with the most impressive track records. I'm also interested in creating functionality that will allow users to browse recordings randomly, instead of via targeted search query. Those are just a few starting points-- ultimately I'd like to expand to allowing for user authentification, and to widen the Birdsongs library to encompass the global data Xeno Canto offers. Stay tuned!
