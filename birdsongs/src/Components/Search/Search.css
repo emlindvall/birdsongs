@@ -12,14 +12,14 @@
 }
 
 .search-header  {
-  margin-bottom: 0px;
+  margin-bottom: 5%;
   font-size: 4vh;
   font-family: 'Josefin Sans', sans-serif;
   color: #5394B8;
 }
 
 .search-description {
-  margin-top: 10%;
+  margin-top: 5%;
   margin-bottom: 5%;
   font-size: 2.25vh;
   font-family: 'Montserrat', sans-serif; 
@@ -40,7 +40,7 @@
 .query-field  {
   width: 62.5%;
   height: 33px;
-  margin-bottom: 10%;
+  margin-bottom: 5%;
   border: none;
   border-radius: 25px;
   text-align: left;
