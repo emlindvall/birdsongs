@@ -1,0 +1,51 @@
+[
+  {
+  "id": "391178",
+  "gen": "Branta",
+  "sp": "canadensis",
+  "ssp": "",
+  "group": "birds",
+  "en": "Canada Goose",
+  "rec": "Greg Irving",
+  "cnt": "United States",
+  "loc": "Midewin Tallgrass Prairie, Will County, Illinois",
+  "lat": "41.366",
+  "lng": "-88.0937",
+  "alt": "190",
+  "type": "flight call",
+  "sex": "",
+  "stage": "",
+  "method": "field recording",
+  "url": "//xeno-canto.org/391178",
+  "file": "https://xeno-canto.org/391178/download",
+  "file-name": "XC391178-014 Goose - Canada or Cackling (Branta XXX) FlightCall OCT 1900 190m MidewinTallgrassIL_GI_0129.mp3",
+  "sono": {
+  "small": "//xeno-canto.org/sounds/uploaded/YWRKFXUDUR/ffts/XC391178-small.png",
+  "med": "//xeno-canto.org/sounds/uploaded/YWRKFXUDUR/ffts/XC391178-med.png",
+  "large": "//xeno-canto.org/sounds/uploaded/YWRKFXUDUR/ffts/XC391178-large.png",
+  "full": "//xeno-canto.org/sounds/uploaded/YWRKFXUDUR/ffts/XC391178-full.png"
+  },
+  "osci": {
+  "small": "//xeno-canto.org/sounds/uploaded/YWRKFXUDUR/wave/XC391178-small.png",
+  "med": "//xeno-canto.org/sounds/uploaded/YWRKFXUDUR/wave/XC391178-med.png",
+  "large": "//xeno-canto.org/sounds/uploaded/YWRKFXUDUR/wave/XC391178-large.png"
+  },
+  "lic": "//creativecommons.org/licenses/by-nc-sa/4.0/",
+  "q": "B",
+  "length": "0:58",
+  "time": "19:00",
+  "date": "2017-10-17",
+  "uploaded": "2017-10-30",
+  "also": [],
+  "rmk": "I assume these are Canada and not Cackling, but not seen clearly enough to say for sure. Flock of 30-40 migrating individuals. ",
+  "bird-seen": "yes",
+  "animal-seen": "yes",
+  "playback-used": "no",
+  "temp": "",
+  "regnr": "",
+  "auto": "no",
+  "dvc": "",
+  "mic": "",
+  "smp": "48000"
+  }
+]

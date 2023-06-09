@@ -11,7 +11,7 @@ const Error = ({ type }) => {
         <h2 className="error-header">Uh Oh!</h2>
         <h3>Looks like you're on a wild goose chase. There are no results for that bird. Check for typos, or try broadening your search term.</h3>
         <p>Search tip: The Birdsongs search feature is best-equipped to handle English genera, and does not currently recognize Latin species names. Stay tuned!</p>
-        <Link to={"/search"}><button className="button">BACK</button></Link>
+        <Link to={"/search"}><button className="button" id="back-button">BACK</button></Link>
       </div>
     )
   }
@@ -21,7 +21,7 @@ const Error = ({ type }) => {
       <div className="error-container">
         <h2 className="error-header">Uh Oh!</h2>
         <p>Looks like you're on a wild goose chase. Check that URL and try again.</p>
-        <Link to={"/"}><button className="button">HOME</button></Link>
+        <Link to={"/"}><button className="button" id="home-button">HOME</button></Link>
       </div>
     )
   }
@@ -31,7 +31,7 @@ const Error = ({ type }) => {
       <div className="error-container">
         <h2 className="error-header">Uh Oh!</h2>
         <p>Something's gone wrong on our end.</p>
-        <Link to={"/"}><button className="button">HOME</button></Link>
+        <Link to={"/"}><button className="button" id="home-button">HOME</button></Link>
       </div>
     )
   }

@@ -53,7 +53,7 @@ const App = () => {
             <Route exact path="/results" render={() => <Birdsongs url={url} location={location} handleSelect={handleSelect}/>} />
             <Route exact path="/saved" render={() => <Saved savedSongs={savedSongs}handleSelect={handleSelect}/>} /> 
             <Route exact path="/:id" render = {({ match }) => {return(<Birdsong id={match.params.id} handleFavorite={handleFavorite}/>)}} />
-            <Route exact path="/*" render={() => <Error type={"redirect"}/>} />
+            <Route path="*" render={() => <Error type={"redirect"}/>} />
           </Switch>
           </div>
           <img className="magpie" src={magpie} alt="Vintage illustration of a black-billed magpie perched on a blooming prickly pear cactus"></img>
