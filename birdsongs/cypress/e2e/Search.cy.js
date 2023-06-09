@@ -61,16 +61,16 @@
       .get('#selected-remark').contains("I assume these are Canada and not Cackling, but not seen clearly enough to say for sure. Flock of 30-40 migrating individuals.")
     });
 
-    // it('User should be notified of failed network request', () => {
-    //   cy.visit('http://localhost:3000/search');
-    //   cy.get('.location-field').click().get('.Dropdown-menu').contains('Illinois').click();
-    //   cy.get('.query-field').type('goose');
-    //   cy.intercept('GET', 'https://xeno-canto.org/api/2/recordings?query=loc:illinois+goose', {
-    //     statusCode: 500,
-    //   });
-    //   cy.get('#search-button').click();
-    //   cy.get('p').contains("Something's gone wrong on our end.");
-    // });
+    it('User should be notified of failed network request', () => {
+      // cy.visit('http://localhost:3000/search');
+      cy.get('.location-field').click().get('.Dropdown-menu').contains('Illinois').click();
+      cy.get('.query-field').type('goose');
+      cy.intercept('GET', 'https://xeno-canto.org/api/2/recordings?query=loc:illinois+goose', {
+        statusCode: 500,
+      });
+      cy.get('#search-button').click();
+      cy.get('p').contains("Something's gone wrong on our end.");
+    });
 
     // it('User should be notified upon search with no results', () => {
     //   cy.get('.location-field').click().get('.Dropdown-menu').contains('Illinois').click()

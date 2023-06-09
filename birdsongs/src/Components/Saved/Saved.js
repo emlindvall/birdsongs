@@ -43,7 +43,7 @@ export default Saved;
 
 // proptypes
 Saved.propTypes = {
-  savedSongs: [],
+  savedSongs: PropTypes.array,
   handleSelect: PropTypes.func.isRequired,
   unformatted: PropTypes.string
 }
