@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Dropdown from 'react-dropdown';
 import dropdownOptions from '../../dropdownOptions.js';
-import '../../../node_modules/react-dropdown/styless.css';
+import 'react-dropdown/style.css';
 import './Search.css';
 
 // component
