@@ -19,14 +19,10 @@
       cy.get('#saved-button').click().url().should('eq', 'http://localhost:3000/saved')
     });
 
-    it('User should see an image of a magpie', () => {
-      cy.get('.magpie').should('be.visible').and('have.attr', 'alt').and('include', 'Vintage illustration of a black-billed magpie perched on a blooming prickly pear cactus')
-    });
-
     it('User should see a central header container', () => {
-      cy.get('.header-top').contains('Do my ears deceive me, or was that a buff-bellied pipit?')
+      cy.get('.header-top').contains('The Birdcall Library')
       .get('.header').contains('BIRD SONGS')
-      .get('.header-bottom').contains('How well do you know the vocalizations around you? Build your backyard birding skills with Birdsongs!')
+      .get('.header-bottom').contains('Do my ears deceive me, or was that a buff-bellied pipit?')
     });
 
     it('User should see a START button', () => {
