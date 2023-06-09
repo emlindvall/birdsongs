@@ -8,9 +8,9 @@
     });
     
     it('User should see a search form', () => {
-      cy.get('.search-description').first().contains("Start by selecting your state from the drop-down menu.")
+      cy.get('.search-description').first().contains("Start by selecting a state to explore from the menu below.")
       .get('.location-field').contains("Choose your state")
-      .get('.search-description').last().contains("Want to hear a specific bird? Try narrowing down your local results by typing its name below. You can leave this blank if you'd prefer a broader search.")
+      .get('.search-description').last().contains("Looking for a specific bird?")
       .get('.query-field').and('have.attr', 'placeholder').and('include', 'Common name')
     });
 
