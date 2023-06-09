@@ -1,37 +1,13 @@
 // imports
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import Spinner from '../Spinner/Spinner';
 import Error from '../Error/Error';
 import './Birdsongs.css';
 
 // component
-const Birdsongs = ({ url, location, handleSelect }) => {
-  let [recordings, setRecordings] = useState([]);
-  let [error, setError] = useState("");
-  let [loading, setLoading] = useState(false);
-
-  useEffect(() => {
-    setLoading(true)
-    const fetchRecordings = async () => {
-      try {
-        const response = await fetch(url);
-        if (!response.ok) {
-          throw new Error(`${response.status}`);
-        }
-        const data = await response.json();
-        const subset = data.recordings.slice(0, 20);
-        setLoading(false);
-        setRecordings(subset);
-      } catch (error) {
-        setError(error);
-        setLoading(false);
-      }
-    };
-  
-    fetchRecordings();
-  }, []);
-
+const Birdsongs = ({ recordings,  location, loading, error, handleSelect }) => {
   const capitalize = (unformatted) => {
     let formatted = unformatted.charAt(0).toUpperCase() + unformatted.slice(1);
     return formatted;
@@ -47,21 +23,23 @@ const Birdsongs = ({ url, location, handleSelect }) => {
     let formatted = unformatted.slice(0, trim);
     return formatted;
   }
-  
 
   if (error)  {
+    console.log(error);
     return(
       <Error type={"fetch"} />
     )
   }
 
-  if (loading) {
-    return(
-      <Spinner />
-    )
+  if (loading || !recordings.length) {
+    return <Spinner />
   }
 
-  if (!loading && !recordings.length)  {
+  console.log("loading", loading);
+  console.log("recordings", recordings)
+  console.log("error", error);
+
+  if (!error && !loading && !recordings)  {
     return(
       <Error type={"search"} />
     )
@@ -73,7 +51,7 @@ const Birdsongs = ({ url, location, handleSelect }) => {
         <div className="birdsongs-container">
           {recordings.map((recording) => (
             <div className="recording-container"key={recording.id}>
-              <Link to={`/${recording.id}`} style={{ textDecoration: 'none' }} onClick={() => handleSelect(recording)}><p className="common-name">{recording.en}</p></Link>
+              <Link to={`/${recording.id}`} style={{ textDecoration: 'none' }} onClick={() => handleSelect(recording.id)}><p className="common-name">{recording.en}</p></Link>
               <p className="scientific-name">{capitalize(recording.sp)} {recording.ssp}</p>
               <p className="specific-location">{formatExactLocation(recording.loc)}</p>
               <audio className="audio" src={recording.file} type="audio/mpeg" controls/>
@@ -89,3 +67,11 @@ const Birdsongs = ({ url, location, handleSelect }) => {
 export default Birdsongs;
 
 // proptypes
+Birdsongs.propTypes = {
+  recordings: PropTypes.array.isRequired,
+  location: PropTypes.string.isRequired,
+  loading: PropTypes.bool,
+  error: PropTypes.string,
+  handleSelect: PropTypes.func.isRequired,
+  unformatted: PropTypes.string,
+}

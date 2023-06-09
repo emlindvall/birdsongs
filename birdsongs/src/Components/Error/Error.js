@@ -1,6 +1,7 @@
 // imports
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import './Error.css';
 
 // component
@@ -40,3 +41,6 @@ const Error = ({ type }) => {
 export default Error;
 
 // proptypes
+Error.propTypes = {
+  type: PropTypes.string.isRequired
+}

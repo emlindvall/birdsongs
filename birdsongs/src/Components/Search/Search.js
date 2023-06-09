@@ -1,6 +1,7 @@
 // imports 
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import Dropdown from 'react-dropdown';
 import dropdownOptions from '../../dropdownOptions.js';
 import 'react-dropdown/customstyles.css';
@@ -41,3 +42,6 @@ const Search = ({ handleSearch } ) => {
 export default Search;
 
 // proptypes
+Search.propTypes = {
+  handleSearch: PropTypes.func.isRequired
+}

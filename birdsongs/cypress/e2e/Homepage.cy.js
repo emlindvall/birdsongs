@@ -36,5 +36,10 @@
     it('When clicked, the START button should navigate to the search page', () => {
       cy.get('#start-button').click().url().should('eq', 'http://localhost:3000/search')
     });
+
+    it('User should be notified of bad url paths', () => {
+      cy.visit('http://localhost:3000/test');
+      cy.get('p').contains("Looks like you're on a wild goose chase. Check that URL and try again.")
+    });
   });
 }

@@ -1,35 +1,13 @@
 // imports
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import Spinner from '../Spinner/Spinner';
 import Error from '../Error/Error';
 import './Birdsong.css';
 
 // component
-const Birdsong = ({ handleFavorite, id }) =>  {
-  let [recording, setRecording] = useState([]);
-  let [error, setError] = useState("");
-  let [loading, setLoading] = useState(false);
-
-  useEffect(() => {
-    setLoading(true)
-    const fetchRecording = async () => {
-      try {
-        const response = await fetch(`https://xeno-canto.org/api/2/recordings?query=nr:${id}`);
-        if (!response.ok) {
-          throw new Error(`${response.status}`);
-        }
-        const data = await response.json();
-        setLoading(false);
-        setRecording(data.recordings[0]);
-      } catch (error) {
-        setError(error);
-        setLoading(false);
-      }
-    };
-  
-    fetchRecording();
-  }, []);
+const Birdsong = ({ handleFavorite, recording, error }) =>  {
 
   const capitalize = (unformatted) => {
     if (!unformatted) return "";
@@ -59,7 +37,7 @@ const Birdsong = ({ handleFavorite, id }) =>  {
       <Error type={"fetch"}/>
     )
   }
-  if (loading) {
+  if (!recording) {
       return(
         <Spinner />
       )
@@ -86,3 +64,15 @@ const Birdsong = ({ handleFavorite, id }) =>  {
 export default Birdsong;
 
 // proptypes
+Birdsong.propTypes = {
+  handleFavorite: PropTypes.func,
+  recording: PropTypes.object,
+  error: PropTypes.string,
+  unformatted: PropTypes.string,
+  parameter: PropTypes.string,
+  recording: PropTypes.object,
+  dateObject: PropTypes.object,
+  month:PropTypes.number,
+  day:PropTypes.number,
+  year: PropTypes.string,
+}
