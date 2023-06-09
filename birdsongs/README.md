@@ -26,11 +26,11 @@ Simply put, [Birdsongs](https://birdsongs-mu.vercel.app/) is a birdcall library.
 
 ## Preview 🦢
 
-![Preview Home Page](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZTFkNjE2MzM0NTg5ZmI3YzNiYmRlYjE1YWFmNzUzYTAzYjM2NjYxMSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/LaFpXqrEmNp5EC8ews/giphy.gif)
+![Preview Home Page](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExY2IxN2JiOWI4ZTZmZTQ1NDNmM2E1MTQ3NTQ4MWYzM2ZiMjZlMjUxMCZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/ypDkrMbQbwOMp1mtmr/giphy.gif)
 
-![Preview Search Functionality](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExYmJmM2MzNWNhNTIxY2QxN2I4ODgzOTk5NjgxMTE5MGY2MGJkZTFjNSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/rOCxUD3kpCRSRIN3OW/giphy.gif)
+![Preview Search Functionality](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNDAwM2U0Y2UwMjZiZTNmNGU3YWM3NTFlNzMyOTg5NGU1YTkxNzYxYSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/jyKvo2tFIeOyRlcyFo/giphy.gif)
 
-![Preview Saved Results](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMzlmNzRhYzI4MTc1M2ExN2Y0NThiYjc3MmNiMDQ4NjA4ZmQ3YWRjNiZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/KRqmShT64RaZXW8b4j/giphy.gif)
+![Preview Saved Results](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM2ZmMWI5MDI4OTllZGJiZmIyY2RkNjg4ZGZmNjAxZDgwNWU3OWM0OSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/H7RIEeIOQRrvXUoC8W/giphy.gif)
 
 ---
 
