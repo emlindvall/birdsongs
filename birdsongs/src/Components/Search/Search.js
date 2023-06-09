@@ -1,11 +1,12 @@
+// imports 
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import './Search.css';
 import Dropdown from 'react-dropdown';
-import 'react-dropdown/style.css';
 import dropdownOptions from '../../dropdownOptions.js';
-import Birdsongs from '../Birdsongs/Birdsongs';
+import 'react-dropdown/customstyles.css';
+import './Search.css';
 
+// component
 const Search = ({ handleSearch } ) => {
   const [location, setLocation] = useState("");
   const [query, setQuery] = useState("");
@@ -26,14 +27,18 @@ const Search = ({ handleSearch } ) => {
         <input 
           className="query-field" 
           name="query-field" 
-          placeholder="Warbler"
+          placeholder="Common name"
           type="text" 
           value={query}
           onChange={(event) => setQuery(event.target.value)}>
         </input>
-        <Link to={"/results"}><button className="button" onClick={handleSearch(location, query)}>SEARCH</button></Link>
+        {location && (
+          <Link to={"/results"}><button className="button" onClick={() => handleSearch(location, query)}>SEARCH</button></Link>
+        )}
       </form>
     )
 }
 
 export default Search;
+
+// proptypes

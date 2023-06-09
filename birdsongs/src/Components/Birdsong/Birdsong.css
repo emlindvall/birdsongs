@@ -1,0 +1,75 @@
+.birdsong-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: left;
+  margin-top: 20%;
+  margin-right: 25%;
+  margin-bottom: 5%;
+  margin-left: 25%;
+  width: 60%;
+  height: 75%;
+  text-align: left;
+  overflow: auto;
+}
+
+.selected-common-name {
+  margin-bottom: 0px;
+  font-family: 'Josefin Sans', sans-serif;
+  color: #5394B8;
+}
+
+.selected-scientific-name {
+  margin-top: 5px;
+  margin-bottom: 0px;
+  color: #3E6B4A;
+  font-weight: bold;
+  font-size: 2.5vh;
+}
+
+.selected-location  {
+  color: #C3DBB8;
+  margin-top: 5px;
+  margin-bottom: 0px;
+}
+
+.info-medium  {
+  margin-top: 5px;
+  margin-bottom: 0px;
+  font-size: 1.75vh;
+  color: #ffffff;
+}
+
+.selected-audio {
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+
+.info-small {
+  margin-top: 5%;
+  font-size: 1.75vh;
+  overflow: wrap;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  gap: 5%;
+  margin-top: 5%;
+}
+
+@media screen and (max-width: 75em) {
+  .selected-audio  {
+    max-width: 85%;
+  }
+}
+
+@media screen and (max-width: 45em) {
+  .birdsong-container {
+    width: 70%;
+    margin-top: 30%;
+    margin-right: 13%;
+    margin-left: 17%;
+  }
+}

@@ -56,4 +56,80 @@ Body font-family: 'Montserrat', sans-serif; */
   justify-content: flex-start;
   align-items: center;
   margin-top: 20%;
+  margin-bottom: 5%;
+}
+
+@media screen and (max-width: 75em) {
+  .arc {
+    height: 80%;
+  }
+
+  .header-container {
+    width: 70%;
+    margin-top: 28%;
+    margin-left: 15%;
+    margin-right: 15%;
+  }
+
+  .magpie {
+    max-height: 48%;
+    margin-left: 65%;
+  }
+}
+
+@media screen and (max-width: 55em) {
+  .arc {
+    width: 60%;
+  }
+
+  .header-container {
+    width: 70%;
+    margin-top: 30%;
+    margin-left: 15%;
+    margin-right: 15%;
+  }
+
+  .magpie {
+    max-height: 38%;
+  }
+}
+
+@media screen and (max-width: 45em) {
+  .arc {
+    width: 70%;
+  }
+
+  .header-container {
+    height: 70%;
+    width: 75%;
+    margin-top: 32.5%;
+    margin-right: 12.5%;
+    margin-left: 12.5%;
+  }
+
+  .magpie {
+    max-height: 28%;
+    margin-left: 75%;
+  }
+}
+
+@media screen and (max-width: 35em) {
+  .arc {
+    height: 85%;
+    width: 80%;
+    margin-right: 20%;
+    margin-left: 20%;
+  }
+
+  .header-container {
+    width: 70%;
+    margin-top: 40%;
+    margin-left: 15%;
+    margin-right: 15%;
+  }
+
+  .magpie {
+    max-height: 18%;
+    margin-left: 80%;
+  }
 }

@@ -1,0 +1,76 @@
+.results-container  {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 15%;
+  margin-right: 20%;
+  margin-bottom: 5%;
+  margin-left: 20%;
+  height: 80%;
+  width: 60%;
+  overflow: auto;
+}
+
+.general-location {
+  font-family: 'Josefin Sans', sans-serif;
+  color: #5394B8;
+}
+
+.birdsongs-container {
+  margin-top: 1%;
+  margin-bottom: 10%;
+  height: 100%;
+  overflow: auto;
+}
+
+.birdsongs-container::-webkit-scrollbar {
+  width: 10px;
+  background: #414141;
+  border-radius: 15px;
+}
+
+.birdsongs-container::-webkit-scrollbar-thumb{
+  background: #747474;
+  border-radius: 15px;
+}
+
+.recording-container  {
+  text-align: left;
+  font-size: 2.5vh;
+  margin-bottom: 5%;
+  margin-left: 10%;
+  overflow: auto;
+}
+
+.common-name  {
+  margin-bottom: 2.5px;
+  font-weight: bold;
+  font-size: 2.5vh;
+  font-family: 'Josefin Sans', sans-serif;
+  color: #3E6B4A;
+}
+
+.scientific-name  {
+  font-size: 2vh;
+  color: #C3DBB8;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.specific-location  {
+  margin-top: 5px;
+  margin-bottom: 15px;
+  font-size: 1.75vh;
+  color: #ffffff;
+}
+
+.audio::-webkit-media-controls-panel  {
+  background: #ffffff;
+}
+
+@media screen and (max-width: 75em) {
+  .audio  {
+    max-width: 85%;
+  }
+}
