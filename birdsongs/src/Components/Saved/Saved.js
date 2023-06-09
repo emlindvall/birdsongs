@@ -12,7 +12,7 @@ const Saved = ({ savedSongs, handleSelect }) => {
 
   if (!savedSongs.length)  {
     return(
-      <div className="saved-container">
+      <div className="saved-songs-container">
         <h2 className="saved-header">Uh Oh!</h2>
         <p>Your saved songs as as scarce as hen's teeth. Once you save a few birdsongs, they'll be here waiting for you.</p>
         <Link to={"/"}><button className="button">HOME</button></Link>

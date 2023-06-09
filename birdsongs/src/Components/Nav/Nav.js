@@ -9,7 +9,7 @@ const Nav = () => {
   return(
     <div className="nav-container">
       <Link to={"/"}><img className="logo" src={logo} alt="Birdsongs logo featuring a small songbird in profile"></img></Link>
-      <Link to={"/saved"}><button className="saved-button">SAVED SONGS</button></Link>
+      <Link to={"/saved"}><button className="saved-button" id="saved-button">SAVED SONGS</button></Link>
     </div>
   )
 }

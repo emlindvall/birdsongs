@@ -1,12 +1,38 @@
 // imports
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import Spinner from '../Spinner/Spinner';
 import Error from '../Error/Error';
 import './Birdsong.css';
 
 // component
-const Birdsong = ({ recording, handleFavorite }) =>  {
+const Birdsong = ({ handleFavorite, id }) =>  {
+  let [recording, setRecording] = useState([]);
+  let [error, setError] = useState("");
+  let [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLoading(true)
+    const fetchRecording = async () => {
+      try {
+        const response = await fetch(`https://xeno-canto.org/api/2/recordings?query=nr:${id}`);
+        if (!response.ok) {
+          throw new Error(`${response.status}`);
+        }
+        const data = await response.json();
+        setLoading(false);
+        setRecording(data.recordings[0]);
+      } catch (error) {
+        setError(error);
+        setLoading(false);
+      }
+    };
+  
+    fetchRecording();
+  }, []);
+
   const capitalize = (unformatted) => {
+    if (!unformatted) return "";
     let formatted = unformatted.charAt(0).toUpperCase() + unformatted.slice(1);
     return formatted;
   }
@@ -20,6 +46,7 @@ const Birdsong = ({ recording, handleFavorite }) =>  {
   }
 
   const formatDate = (unformatted)  =>  {
+    if (!unformatted) return "";
     let dateObject = new Date(unformatted);
     let month = dateObject.toLocaleString('default', { month: 'long' });
     let day = unformatted.slice(8);
@@ -27,10 +54,15 @@ const Birdsong = ({ recording, handleFavorite }) =>  {
     return `${month} ${day}, ${year}`;
   }
 
-  if (!recording) {
+  if (error) {
     return(
-      <Error type={"redirect"}/>
+      <Error type={"fetch"}/>
     )
+  }
+  if (loading) {
+      return(
+        <Spinner />
+      )
   } else {
     return(
       <div className="birdsong-container">
