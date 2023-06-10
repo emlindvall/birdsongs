@@ -1,5 +1,5 @@
 // imports
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Nav from '../Nav/Nav';
