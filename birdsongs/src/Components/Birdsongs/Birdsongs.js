@@ -8,22 +8,6 @@ import './Birdsongs.css';
 
 // component
 const Birdsongs = ({ recordings,  location, loading, error, handleSelect }) => {
-  const capitalize = (unformatted) => {
-    let formatted = unformatted.charAt(0).toUpperCase() + unformatted.slice(1);
-    return formatted;
-  }
-
-  const formatLocation = (unformatted) => {
-    let formatted = unformatted.replace("_", " ");
-    return formatted;
-  }
-
-  const formatExactLocation = (unformatted) => {
-    let trim = (unformatted.length - (location.length + 2));
-    let formatted = unformatted.slice(0, trim);
-    return formatted;
-  }
-
   if (error)  {
     return(
       <Error type={"fetch"} />
@@ -42,14 +26,14 @@ const Birdsongs = ({ recordings,  location, loading, error, handleSelect }) => {
   } else {
     return(
       <div className="results-container">
-        <h2 className="general-location">{formatLocation(location)}, USA</h2>
+        <h2 className="general-location">{(location)}, USA</h2>
         <div className="birdsongs-container">
           {recordings.map((recording) => (
             <div className="recording-container"key={recording.id}>
-              <Link to={`/${recording.id}`} style={{ textDecoration: 'none' }} onClick={() => handleSelect(recording.id)}><p className="common-name">{recording.en}</p></Link>
-              <p className="scientific-name">{capitalize(recording.sp)} {recording.ssp}</p>
-              <p className="specific-location">{formatExactLocation(recording.loc)}</p>
-              <audio className="audio" src={recording.file} type="audio/mpeg" controls/>
+              <Link to={`/${recording.id}`} style={{ textDecoration: 'none' }} onClick={() => handleSelect(recording.id)}><p className="common-name">{recording.english}</p></Link>
+              <p className="scientific-name">{recording.latin}</p>
+              <p className="specific-location">{(recording.exactLocation)}</p>
+              <audio className="audio" src={recording.src} type="audio/mpeg" controls/>
             </div>
           ))}
         </div>
