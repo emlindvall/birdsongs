@@ -3,7 +3,7 @@ const cleanUp = (data) => {
 
   const capitalize = (unformatted) => {
     return unformatted.charAt(0).toUpperCase() + unformatted.slice(1);
-  };
+  }
 
   const formatData = (unformatted, parameter) => {
     if (!unformatted || unformatted === "uncertain") {
@@ -11,7 +11,7 @@ const cleanUp = (data) => {
     } else {
       return capitalize(unformatted);
     }
-  };
+  }
 
   const formatDate = (unformatted) => {
     if (!unformatted) return "";
@@ -19,7 +19,7 @@ const cleanUp = (data) => {
     let dateObject = new Date(year, month - 1, day);
     let options = { month: 'long', day: 'numeric', year: 'numeric' };
     return dateObject.toLocaleString('en-US', options);
-  };
+  }
 
   data.forEach((cv) => {
     let cleanData = {
@@ -32,11 +32,11 @@ const cleanUp = (data) => {
       date: `Recorded on ${formatDate(cv.date)}`,
       recordist: `by ${cv.rec}`,
       notes: cv.rmk
-    };
+    }
     cleaned.push(cleanData);
-  });
+  })
 
   return cleaned;
-};
+}
 
 export default cleanUp;

@@ -32,8 +32,7 @@ const Search = ({ handleSearch } ) => {
           value={query}
           onChange={(event) => setQuery(event.target.value)}>
         </input>
-        {location && (
-          <Link to={"/results"}><button className="button" id="search-button" onClick={() => handleSearch(location, query)}>SEARCH</button></Link>
+        {location && (<Link to={"/results"}><button className="button" id="search-button" onClick={() => handleSearch(location, query)}>SEARCH</button></Link>
         )}
       </form>
     )
@@ -43,5 +42,7 @@ export default Search;
 
 // proptypes
 Search.propTypes = {
-  handleSearch: PropTypes.func.isRequired
+  handleSearch: PropTypes.func.isRequired,
+  location: PropTypes.string,
+  query: PropTypes.string,
 }
