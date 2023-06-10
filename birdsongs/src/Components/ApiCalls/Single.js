@@ -14,6 +14,6 @@ const fetchSingle = async (id) => {
   } catch (error) {
     throw error;
   }
-};
+}
 
 export default fetchSingle;

@@ -89,7 +89,8 @@ App.propTypes = {
   url: PropTypes.string,
   data: PropTypes.object,
   recordings: PropTypes.array,
-  recording: PropTypes.object,
+  recording: PropTypes.array,
   error: PropTypes.bool,
-  loading: PropTypes.bool
+  loading: PropTypes.bool,
+  id: PropTypes.number
 }
