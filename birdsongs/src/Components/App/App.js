@@ -10,7 +10,7 @@ import Birdsong from '../Birdsong/Birdsong';
 import Saved from '../Saved/Saved';
 import Error from '../Error/Error';
 import getData from '../../ApiCall';
-// import magpie from '../../assets/birdsongs-magpie.png';
+import cleanUp from '../../utilities.js';
 import './App.css';
 
 // component 
@@ -30,11 +30,11 @@ const App = () => {
 
   const handleSearch = async (location, query) => {
     clearInputs();
-    setLoading(true);
     let url = `https://xeno-canto.org/api/2/recordings?query=loc:${location}+${query}`;
     const data = await getData(url);
     if (data.recordings) {
-      setRecordings(data.recordings.slice(0, 20));
+      let unformatted = data.recordings.slice(0, 20);
+      setRecordings(cleanUp(unformatted));
       setLocation(location);
       setLoading(false);
     } else {
@@ -47,7 +47,14 @@ const App = () => {
     clearInputs();
     let url = `https://xeno-canto.org/api/2/recordings?query=nr:${id}`;
     const data = await getData(url);
-    setRecording(data.recordings[0]);
+    if (data.recordings) {
+      let unformatted = cleanUp(data.recordings);
+      setRecording(unformatted[0]); 
+      setLoading(false);
+    } else {
+      setError(true);
+      setLoading(false);
+    }
   }
 
   const handleFavorite = (recording) => {
