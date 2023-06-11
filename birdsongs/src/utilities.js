@@ -30,7 +30,7 @@ const cleanUp = (data) => {
       demographics: `${formatData(cv.stage, "Age")}, ${formatData(cv.sex, "Sex")}`,
       src: cv.file,
       date: `Recorded on ${formatDate(cv.date)}`,
-      recordist: `by ${cv.rec}`,
+      recordist: `${cv.rec}`,
       notes: cv.rmk
     }
     cleaned.push(cleanData);
