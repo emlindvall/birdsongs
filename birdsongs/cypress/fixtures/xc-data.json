@@ -1,4 +1,9 @@
-[
+{
+  "numRecordings": "4",
+  "numSpecies": "3",
+  "page": 1,
+  "numPages": 1,
+  "recordings": [
   {
   "id": "391178",
   "gen": "Branta",
@@ -199,4 +204,5 @@
   "mic": "",
   "smp": "44100"
   }
-]
+  ]
+  }
