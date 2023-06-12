@@ -1,6 +1,6 @@
 {describe('Search functionality', () => {
     beforeEach(() => {
-      cy.intercept('GET', 'https://xeno-canto.org/api/2/recordings?query=loc:illinois+goose', {
+      cy.intercept('GET', 'https://xeno-canto.org/api/2/recordings?query=loc:Illinois+"goose"', {
         statusCode: 200,
         fixture: 'xc-data.json'
       });
@@ -27,11 +27,7 @@
     it('User should be able to search birdsongs by location and query', () => {
       cy.get('.location-field').click().get('.Dropdown-menu').contains("Illinois").click()
       .get('.query-field').type("goose")
-      cy.intercept('GET', 'https://xeno-canto.org/api/2/recordings?query=nr+391178', {
-        statusCode: 200,
-        fixture: 'single-xc-data.json'
-      });
-      cy.get('#search-button').click()
+      .get('#search-button').click()
       .get('.common-name').contains("Canada Goose")
       .get('.scientific-name').contains("Canadensis")
       .get('.specific-location').contains("Midewin Tallgrass Prairie, Will County")
@@ -61,20 +57,20 @@
       .get('#selected-remark').contains("I assume these are Canada and not Cackling, but not seen clearly enough to say for sure. Flock of 30-40 migrating individuals.")
     });
 
-    // it('User should be notified of failed network request', () => {
-    //   cy.get('.location-field').click().get('.Dropdown-menu').contains('Illinois').click();
-    //   cy.get('.query-field').type('goose');
-    //   cy.intercept('GET', 'https://xeno-canto.org/api/2/recordings?query=loc:illinois+goose', {
-    //     statusCode: 500,
-    //   });
-    //   cy.get('#search-button').click();
-    //   cy.get('p').contains("Something's gone wrong on our end.");
-    // });
+    it('User should be notified of failed network request', () => {
+      cy.get('.location-field').click().get('.Dropdown-menu').contains('Illinois').click();
+      cy.get('.query-field').type('goose');
+      cy.intercept('GET', 'https://xeno-canto.org/api/2/recordings?query=loc:Illinois+goose', {
+        statusCode: 500,
+      });
+      cy.get('#search-button').click();
+      cy.get('p').contains("Something's gone wrong on our end.");
+    });
 
     it('User should be notified upon search with no results', () => {
       cy.get('.location-field').click().get('.Dropdown-menu').contains('Illinois').click()
       .get('.query-field').type('sillygoose');
-      cy.intercept('GET', 'https://xeno-canto.org/api/2/recordings?query=loc:illinois+sillygoose', {
+      cy.intercept('GET', 'https://xeno-canto.org/api/2/recordings?query=loc:Illinois+"sillygoose"', {
         statusCode: 200,
         fixture: 'bad-xc-data.json'
         });
@@ -84,7 +80,7 @@
     });
 
     it('The BACK button should return users to the homepage', () => {
-      cy.intercept('GET', 'https://xeno-canto.org/api/2/recordings?query=loc:illinois+sillygoose', {
+      cy.intercept('GET', 'https://xeno-canto.org/api/2/recordings?query=loc:Illinois+"sillygoose"', {
           statusCode: 200,
           fixture: 'bad-xc-data.json'
       })
